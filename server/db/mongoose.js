@@ -1,8 +1,9 @@
 const mongoose = require('mongoose');
+const dotenv = require('dotenv');
 
-const url = `mongodb://localhost:27017/TodoList`;
+dotenv.config({ path: './server/config/dev.env' });
 
-mongoose.connect(url, {
+mongoose.connect(process.env.MONGO_URI, {
     useNewUrlParser: true,
     useCreateIndex: true,
     useFindAndModify: false,
