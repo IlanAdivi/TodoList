@@ -10,8 +10,6 @@ app.use(cors());
 app.use(express.json());
 app.use(todoRouter);
 
-console.log(process.env.NODE_ENV);
-
 if (process.env.NODE_ENV == 'production') {
   app.use('/', express.static(path.join(__dirname, '/client/build')));
 
