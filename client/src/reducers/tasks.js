@@ -1,27 +1,27 @@
 import {
-    ADD_TODO,
-    FETCH_TODOS,
-    DELETE_TODO,
-    EDIT_TODO
+    ADD_TASK,
+    FETCH_TASKS,
+    DELETE_TASK,
+    EDIT_TASK
 } from '../actions/types';
 
-export const todos = (state = null, action) => {
+export const tasks = (state = null, action) => {
     switch (action.type) {
-        case ADD_TODO:
+        case ADD_TASK:
             return [
                 ...state,
                 action.payload
             ];
             
-        case FETCH_TODOS:
+        case FETCH_TASKS:
             return action.payload;
 
-        case DELETE_TODO:
+        case DELETE_TASK:
             return state.filter(task =>
                 task._id !==
                 action.payload._id);
 
-        case EDIT_TODO:
+        case EDIT_TASK:
             return state.map(task => {
                 if (task._id === action.payload._id) {
                     task.description = action.payload.description

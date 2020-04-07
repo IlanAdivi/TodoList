@@ -1,8 +1,6 @@
 import { combineReducers } from 'redux';
-import { 
-     todos
- } from './todos';
+import { tasks } from './tasks';
 
 export const reducers = combineReducers({
-     todos
+     tasks
 });

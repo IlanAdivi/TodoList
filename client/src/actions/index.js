@@ -1,65 +1,51 @@
 import axios from 'axios';
 
 import {
-    ADD_TODO,
-    FETCH_TODOS,
-    DELETE_TODO,
-    EDIT_TODO
+    ADD_TASK,
+    FETCH_TASKS,
+    DELETE_TASK,
+    EDIT_TASK
 } from './types';
 
 const URL = 'http://localhost:5000';
 
-export const addTodo = term => async dispatch => {
-    const res = await axios.post(`${URL}/addTodo`, {
+export const addTask = term => async dispatch => {
+    const res = await axios.post(`${URL}/addTask`, {
         description: term
     });
 
     dispatch({
-        type: ADD_TODO,
+        type: ADD_TASK,
         payload: res.data
     });
 }
 
-// export const fetchTodos = () => async dispatch => {
-//     const response = await axios.get(`${URL}/todos`);
-//     console.log(response);
-
-//     dispatch({
-//         type: FETCH_TODOS,
-//         payload: response.data
-//     });
-// }
-
-export const fetchTodos = () => {
-    return function (dispatch) {
-        return axios
-            .get(`${URL}/todos`)
-            .then(res => {
-                console.log(res.data);
-                return dispatch({
-                    type: FETCH_TODOS,
-                    payload: res.data
-                });
-            });
-    }
-};
-
-export const deleteTodo = id => async dispatch => {
-    const res = await axios.delete(`${URL}/todo/${id}`);
+export const fetchTasks = () => async dispatch => {
+    const response = await axios.get(`${URL}/tasks`);
+    console.log(response);
 
     dispatch({
-        type: DELETE_TODO,
+        type: FETCH_TASKS,
+        payload: response.data
+    });
+}
+
+export const deleteTask = id => async dispatch => {
+    const res = await axios.delete(`${URL}/task/${id}`);
+
+    dispatch({
+        type: DELETE_TASK,
         payload: res.data
     });
 };
 
-export const editTodo = (term, id) => async dispatch => {
-    const res = await axios.put(`${URL}/todo/${id}`, {
+export const editTask = (term, id) => async dispatch => {
+    const res = await axios.put(`${URL}/task/${id}`, {
         description: term
     });
 
     dispatch({
-        type: EDIT_TODO,
+        type: EDIT_TASK,
         payload: {
             _id: id,
             description: res.data.description

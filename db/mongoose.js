@@ -3,11 +3,9 @@ const dotenv = require('dotenv');
 
 dotenv.config({ path: './config/dev.env' });
 
-const { mongo_URL } = process.env;
+const { MONGODB_URI } = process.env;
 
-console.log(mongo_URL);
-
-mongoose.connect(mongo_URL,
+mongoose.connect(MONGODB_URI,
     {
         useNewUrlParser: true,
         useCreateIndex: true,

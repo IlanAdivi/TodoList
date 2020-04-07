@@ -2,19 +2,19 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import {
-    fetchTodos,
-    addTodo,
-    deleteTodo,
-    editTodo
+    fetchTasks,
+    addTask,
+    deleteTask,
+    editTask
 } from '../../actions';
 
 function TodoList() {
     const [term, setTerm] = useState("");
-    const todos = useSelector(state => state.todos);
+    const tasks = useSelector(state => state.tasks);
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(fetchTodos());
+        dispatch(fetchTasks());
         setTerm("");
     }, [dispatch]);
 
@@ -24,18 +24,18 @@ function TodoList() {
 
     function onSubmit(e) {
         e.preventDefault();
-        dispatch(addTodo(term));
+        dispatch(addTask(term));
         setTerm("");
     }
 
     function onDelete(itemId, e) {
         e.preventDefault();
-        dispatch(deleteTodo(itemId));
+        dispatch(deleteTask(itemId));
     }
 
     function onEdit(itemId, e) {
         e.preventDefault();
-        dispatch(editTodo(term, itemId));
+        dispatch(editTask(term, itemId));
         setTerm("");
     }
 
@@ -72,8 +72,8 @@ function TodoList() {
                 <table
                     className="table">
                     <tbody>
-                        {!todos ? null :
-                            todos.map((item, index) => (
+                        {!tasks ? null :
+                            tasks.map((item, index) => (
                                 <tr key={index}>
                                     <td
                                         className="text-left">
