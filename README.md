@@ -4,10 +4,10 @@
 The application provides a way to manage tasks, as well as creating, reading, updating and deleting tasks.
 Technologies: MongoDB, Express, React(&Redux), Node.js.
 
-###Installation
+### Installation
 Download the project files.
 
-###Getting Started
+### Getting Started
 First, install the project's dependencies using npm.
 ```
 npm install
