@@ -14,15 +14,7 @@ npm install
  cd client npm install
  cd ..
  ```
-Open MongoDB in the browser https://www.mongodb.com/cloud/atlas and then:
-1) Create your account.
-2) Create a project.
-3) Fill your User Name and Password.
-4) Select in 'connect' option.
-5) Select in 'connect your application' option.
-6) Creating config folder in the root directory, and then adding an file .env in config folder.
-7) In the .env file, create a environment variable-MONGODB_URI.
-8) Copy your connection string to .env file and replace <password> with your own password.
+change config.env file in config folder
 
 To run frontend and backend
 ```
