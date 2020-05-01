@@ -14,7 +14,7 @@ npm install
  cd client npm install
  cd ..
  ```
-change config.env file in config folder
+Now, change config/dev.env file in config folder
 
 To run frontend and backend
 ```
