@@ -22,7 +22,6 @@ export const addTask = term => async dispatch => {
 
 export const fetchTasks = () => async dispatch => {
     const response = await axios.get(`${URL}/tasks`);
-    console.log(response);
 
     dispatch({
         type: FETCH_TASKS,

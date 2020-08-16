@@ -36,69 +36,69 @@ function TodoList() {
     function onEdit(itemId, e) {
         e.preventDefault();
         dispatch(editTask(term, itemId));
-        setTerm("");
     }
 
     return (
         <div className="col-md-12">
-                <form
-                    onSubmit={e => onSubmit(e)}>
+            <form
+                onSubmit={e => onSubmit(e)}>
+                <div
+                    className="form-group">
+                    <label>Task Name</label>
                     <div
-                        className="form-group">
-                        <label>Task Name</label>
+                        className="row">
                         <div
-                            className="row">
-                            <div
-                                className="col-md-9">
-                                <input
-                                    type="text"
-                                    className="form-control"
-                                    onChange={e => onInputChange(e)}
-                                    value={term}
-                                />
-                            </div>
-                            <div
-                                className="col-md-1">
-                                <button
-                                    type="submit"
-                                    onClick={e => onSubmit(e)}
-                                    className="btn btn-success">
-                                    Add
+                            className="col-md-9">
+                            <input
+                                type="text"
+                                className="form-control"
+                                onChange={e => onInputChange(e)}
+                                value={term}
+                            />
+                        </div>
+                        <div
+                            className="col-md-1">
+                            <button
+                                type="submit"
+                                onClick={e => onSubmit(e)}
+                                className="btn btn-success">
+                                Add
             </button>
-                            </div>
                         </div>
                     </div>
-                </form>
-                <table
-                    className="table">
-                    <tbody>
-                        {!tasks ? null :
-                            tasks.map((item, index) => (
-                                <tr key={index}>
-                                    <td
-                                        className="text-left">
-                                        {item.description}
-                                    </td>
-                                    <td
-                                        className="text-right">
-                                        <button
-                                            className="btn btn-info mr-1"
-                                            disabled={!term ? true : false}
-                                            onClick={e => onEdit(item._id, e)}
-                                        >
-                                            Edit
+                </div>
+            </form>
+            <table
+                className="table">
+                <tbody>
+                    {!tasks ? null :
+                        tasks.map((item, index) => (
+                            <tr key={index}>
+                                <td
+                                    className="text-left">
+                                    {item.description}
+                                </td>
+                                {console.log(item._id)}
+                                <td
+                                    className="text-right">
+                                    <button
+                                        className="btn btn-info mr-1"
+                                        disabled={!term ? true : false}
+                                        onClick={e => onEdit(item._id, e)}
+                                    >
+                                        Edit
         </button>
-                                        <button
-                                            className="btn btn-danger"
-                                            onClick={e => onDelete(item._id, e)}
-                                        >
-                                            Delete
+                                    <button
+                                        className="btn btn-danger"
+                                        onClick={e => onDelete(item._id, e)}
+                                    >
+                                        Delete
         </button>
-                                    </td>
-                                </tr>
-                            ))}
-                    </tbody>
-                </table>
+                                </td>
+                            </tr>
+                        ))}
+                </tbody>
+            </table>
         </div>
     );
 }
