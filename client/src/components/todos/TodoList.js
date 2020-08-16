@@ -36,6 +36,7 @@ function TodoList() {
     function onEdit(itemId, e) {
         e.preventDefault();
         dispatch(editTask(term, itemId));
+        setTerm("");
     }
 
     return (
