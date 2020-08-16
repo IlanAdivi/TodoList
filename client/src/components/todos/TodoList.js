@@ -78,7 +78,6 @@ function TodoList() {
                                     className="text-left">
                                     {item.description}
                                 </td>
-                                {console.log(item._id)}
                                 <td
                                     className="text-right">
                                     <button
