@@ -7,10 +7,8 @@ import {
     EDIT_TASK
 } from './types';
 
-const URL = 'http://localhost:5000';
-
 export const addTask = term => async dispatch => {
-    const res = await axios.post(`${URL}/addTask`, {
+    const res = await axios.post(`/addTask`, {
         description: term
     });
 
@@ -21,7 +19,7 @@ export const addTask = term => async dispatch => {
 }
 
 export const fetchTasks = () => async dispatch => {
-    const response = await axios.get(`${URL}/tasks`);
+    const response = await axios.get(`/tasks`);
 
     dispatch({
         type: FETCH_TASKS,
@@ -30,7 +28,7 @@ export const fetchTasks = () => async dispatch => {
 }
 
 export const deleteTask = id => async dispatch => {
-    const res = await axios.delete(`${URL}/task/${id}`);
+    const res = await axios.delete(`/task/${id}`);
 
     dispatch({
         type: DELETE_TASK,
@@ -39,7 +37,7 @@ export const deleteTask = id => async dispatch => {
 };
 
 export const editTask = (term, id) => async dispatch => {
-    const res = await axios.put(`${URL}/task/${id}`, {
+    const res = await axios.put(`/task/${id}`, {
         description: term
     });
 
